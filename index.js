@@ -9,7 +9,7 @@ document.getElementById('registration').addEventListener('click',function(e){
     const checkEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
     const checkPassword = /^(?=.*\d).{8,}$/.test(password);
     const country = document.getElementById("country").value;
-    const gender =document.querySelector('input[name="gender"]:checked').value;
+    const gender =document.querySelector('input[name="gender"]:checked');
     const isChecked = document.getElementById("terms").checked;
     const today = new Date();
     
@@ -59,8 +59,8 @@ document.getElementById('registration').addEventListener('click',function(e){
         return alert("Please select a country")
     }
     // gender validation
-    if(gender){
-        console.log(gender)
+    if(gender.value){
+        console.log(gender.value)
     }else{
         return alert("Gender must be selected!!")
     }
