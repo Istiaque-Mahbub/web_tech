@@ -1,4 +1,5 @@
 document.getElementById('registration').addEventListener('click',function(e){
+    e.preventDefault();
     const fullName = document.getElementById('fullname').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -11,7 +12,7 @@ document.getElementById('registration').addEventListener('click',function(e){
     const gender =document.querySelector('input[name="gender"]:checked').value;
     const isChecked = document.getElementById("terms").checked;
     const today = new Date();
-
+    
   
     // check name
     if(checkName){
