@@ -68,4 +68,6 @@ document.getElementById('registration').addEventListener('click',function(e){
     if (!isChecked) {
         return alert("Please checked terms and conditions")
       } 
+
+    return alert("Registration successful!!")
 })
