@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
     <title>Document</title>
 </head>
 <body>
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-        <div style="background-color: blueviolet; height: 200px; width: 200px; border-radius: 50%; margin-top: 10px; margin-bottom: 10px;"></div>
-        <h4>Lab Section:D</h4>
+        <div style="background-color: blueviolet; height: 100px; width: 100px; border-radius: 50%; margin-top: 10px; margin-bottom: 10px;"></div>
+        <h4>AQI(Air Quality Index)</h4>
     <div style="display: flex; margin-left: auto; margin-right: auto;">
         <div>
-            <div style="background-color: aqua; height: 1000px; width: 300px;">
+            <div style="background-color: aqua; height: 950px; width: 300px;">
                 
              <form action=""  style="margin: 10px 20px;">
-                <h3 style="border: 10px solid;text-align: center;">User Registration</h3>
+                <h3 style="border: 1px solid;text-align: center;">User Registration</h3>
             <!-- name field -->
                 <label>
                     <p>Name</p>
@@ -58,7 +59,7 @@
                     <p>Color</p>
                     <input type="color"  >
                 </label>
-                <!-- gander -->
+                <!-- gender -->
                 <label >
                     <p>Gender</p>
                     <input type="radio" id="male" name="gender" value="male">
@@ -75,12 +76,85 @@
                  </label>
                  <br>
                  <br>
+                 <p id="errorMsg" style="color: red; font-size: small;font-weight: bold;"></p>
+                 <br>
+                 <br>
                  <input style="border: 1px solid; padding: 10px; border-radius: 5px; background-color: blue; color: white; box-shadow: 2px 2px black;" id="registration" type="button"  value="Confirm Registration">
              </form>
             </div>
-            <div style="background-color:black; height: 200px; width: 300px;"></div>
+            <div style="background-color:darkcyan; height: 300px; width: 300px;  display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 10px;">
+                <h3 style="font-weight: bold;">Login</h3>
+                <!-- login -->
+                 <form>
+                    <label>
+                        <label>
+                            <p>Username</p>
+                            <input  style="border: 1px solid; padding: 10px; border-radius: 5px;" type="text" id="username" placeholder="Please enter your username" >
+                        </label>
+                     </label>
+                     <label >
+                        <p>Password</p>
+                        <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="password" placeholder="Enter your password" id="loginPass">
+                    </label>
+                    <br>
+                    <br>
+                    <input style="border: 1px solid; padding: 10px; border-radius: 5px; background-color: blue; color: white; box-shadow: 2px 2px black;" id="registration" type="button"  value="Login">
+                 </form>
+            </div>
         </div>
-        <div style="margin-top: 20px; background-color: blue; height: 1200px; width: 200px;"></div>
+        <div style="margin-top: 20px; background-color:antiquewhite; height: 1260px; width: 500px;">
+            <h3 style="text-align: center;">Air Quality Index (AQI) by City</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>City</th>
+                        <th>AQI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     </div>
     <script src="./index.js"></script>

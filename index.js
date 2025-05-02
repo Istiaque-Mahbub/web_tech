@@ -12,25 +12,26 @@ document.getElementById('registration').addEventListener('click',function(e){
     const gender =document.querySelector('input[name="gender"]:checked');
     const isChecked = document.getElementById("terms").checked;
     const today = new Date();
+    const errorMsg = document.getElementById('errorMsg');
     
   
     // check name
     if(checkName){
         console.log(fullName)
     }else{
-       return alert("Username must be filled up and it can't be contain number or special character")
+       return errorMsg.innerText="Username must be filled up and it can't be contain number or special character"
     }
     //check valid email
     if(checkEmail){
         console.log(email,password,confirmed_password)
     }else{
-       return alert("Give a valid email")
+       return errorMsg.innerText="Give a valid email"
 
     }
     // password validation
     if(!checkPassword || password!==confirmed_password)
     {
-       return alert("Password must 8 character and also contain minimum one number. Confirm password and password must be matched")
+       return errorMsg.innerText="Password must 8 character and also contain minimum one number. Confirm password and password must be matched"
         
     }
     else{
@@ -40,7 +41,7 @@ document.getElementById('registration').addEventListener('click',function(e){
       // age validation 
       if (isNaN(dateOfBirth)) {
       
-        return alert("Please enter a valid date.");
+        return errorMsg.innerText="Please enter a valid date."
       }
   
       // Calculate 18 years ago from today
@@ -48,27 +49,27 @@ document.getElementById('registration').addEventListener('click',function(e){
       ageLimitDate.setFullYear(today.getFullYear() - 18);
   
       if (dateOfBirth > ageLimitDate) {
-        return alert( "You are under 18.")
-      } 
+        return  errorMsg.innerText="You are under 18."
+      }  
 
     
 //    country validation
     if(country){
         console.log(country)
     }else{
-        return alert("Please select a country")
+        return errorMsg.innerText="Please select a country"
     }
     // gender validation
     if(gender.value){
         console.log(gender.value)
     }else{
-        return alert("Gender must be selected!!")
+        return errorMsg.innerText="Gender must be selected!!"
     }
     // terms and conditions checked
     
     if (!isChecked) {
-        return alert("Please checked terms and conditions")
+        return errorMsg.innerText="Please checked terms and conditions"
       } 
 
-    return alert("Registration successful!!")
+    return errorMsg.innerText="Registration successful!!"
 })
