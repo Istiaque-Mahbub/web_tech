@@ -1,5 +1,5 @@
-document.getElementById('registration').addEventListener('click',function(e){
-    e.preventDefault();
+function val() {
+
     const fullName = document.getElementById('fullname').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -16,32 +16,29 @@ document.getElementById('registration').addEventListener('click',function(e){
     
   
     // check name
-    if(checkName){
-        console.log(fullName)
-    }else{
-       return errorMsg.innerText="Username must be filled up and it can't be contain number or special character"
+    if(!checkName){
+        errorMsg.innerText="Username must be filled up and it can't be contain number or special character"
+        return false
     }
     //check valid email
-    if(checkEmail){
-        console.log(email,password,confirmed_password)
-    }else{
-       return errorMsg.innerText="Give a valid email"
-
+    if(!checkEmail){
+        errorMsg.innerText="Give a valid email"
+        return false
     }
     // password validation
     if(!checkPassword || password!==confirmed_password)
     {
-       return errorMsg.innerText="Password must 8 character and also contain minimum one number. Confirm password and password must be matched"
+        errorMsg.innerText="Password must 8 character and also contain minimum one number. Confirm password and password must be matched"
+        return false
         
     }
-    else{
-        console.log(password)
-    }
+    
 
       // age validation 
       if (isNaN(dateOfBirth)) {
       
-        return errorMsg.innerText="Please enter a valid date."
+         errorMsg.innerText="Please enter a valid date."
+         return false
       }
   
       // Calculate 18 years ago from today
@@ -49,7 +46,8 @@ document.getElementById('registration').addEventListener('click',function(e){
       ageLimitDate.setFullYear(today.getFullYear() - 18);
   
       if (dateOfBirth > ageLimitDate) {
-        return  errorMsg.innerText="You are under 18."
+      errorMsg.innerText="You are under 18."
+      return false
       }  
 
     
@@ -57,19 +55,25 @@ document.getElementById('registration').addEventListener('click',function(e){
     if(country){
         console.log(country)
     }else{
-        return errorMsg.innerText="Please select a country"
+         errorMsg.innerText="Please select a country"
+         return false
     }
     // gender validation
     if(gender.value){
         console.log(gender.value)
     }else{
-        return errorMsg.innerText="Gender must be selected!!"
+         errorMsg.innerText="Gender must be selected!!"
+         return false
     }
     // terms and conditions checked
     
     if (!isChecked) {
-        return errorMsg.innerText="Please checked terms and conditions"
-      } 
+     errorMsg.innerText="Please checked terms and conditions"
+     return false
+      
+    } 
 
-    return errorMsg.innerText="Registration successful!!"
-})
+
+        return true;
+    
+    }

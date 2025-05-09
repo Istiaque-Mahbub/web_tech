@@ -14,37 +14,37 @@
         <div>
             <div style="background-color: aqua; height: 950px; width: 300px;">
                 
-             <form action=""  style="margin: 10px 20px;">
+             <form action="process.php" method="post"  style="margin: 10px 20px;" onsubmit="return val()">
                 <h3 style="border: 1px solid;text-align: center;">User Registration</h3>
             <!-- name field -->
                 <label>
                     <p>Name</p>
-                    <input  style="border: 1px solid; padding: 10px; border-radius: 5px;" type="text" id="fullname" placeholder="Please give your full name" >
+                    <input  style="border: 1px solid; padding: 10px; border-radius: 5px;" type="text" name="userName" id="fullname" placeholder="Please give your full name" >
                 </label>
                 <!-- email field -->
                 <label >
                     <p>Email</p>
-                    <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="email" placeholder="Please give your email address" id="email">
+                    <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="email" name="userEmail" placeholder="Please give your email address" id="email">
                 </label>
                 <!-- password field -->
                 <label >
                     <p>Password</p>
-                    <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="password" placeholder="Give a strong password" id="password">
+                    <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="password" name="pass" placeholder="Give a strong password" id="password">
                 </label>
                 <!-- confirmed password -->
                 <label >
                     <p>Confirmed Password</p>
-                    <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="password" placeholder="Retype the password" id="confirmed_password">
+                    <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="password" name="comPass" placeholder="Retype the password" id="confirmed_password">
                 </label>
                 <!-- DOB field -->
                 <label >
                     <p>DOB</p>
-                    <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="date" placeholder="Please give your birth date" id="dateOfBirth">
+                    <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="date" name="birthday" placeholder="Please give your birth date" id="dateOfBirth">
                 </label>
                 <!-- user country -->
                 <label >
                     <p>Country</p>
-                   <select style="border: 1px solid; padding: 10px; border-radius: 5px;" name="" id="country" required>
+                   <select style="border: 1px solid; padding: 10px; border-radius: 5px;" name="userCountry" id="country" required>
                     <option value="" selected disabled>Select your Country</option>
                     <option value="Bangladesh">Bangladesh</option>
                     <option value="India">India</option>
@@ -57,7 +57,7 @@
                 <!-- preference color -->
                 <label >
                     <p>Color</p>
-                    <input type="color"  >
+                    <input type="color"  name="color" id="preferColor">
                 </label>
                 <!-- gender -->
                 <label >
@@ -71,7 +71,7 @@
                 <!-- check box -->
                  <label>
                     <br>
-                    <input type="checkbox" id="terms">
+                    <input type="checkbox" id="terms" name="conditions">
                     <label for=""><a href="">terms and conditions</a></label>
                  </label>
                  <br>
@@ -79,8 +79,10 @@
                  <p id="errorMsg" style="color: red; font-size: small;font-weight: bold;"></p>
                  <br>
                  <br>
-                 <input style="border: 1px solid; padding: 10px; border-radius: 5px; background-color: blue; color: white; box-shadow: 2px 2px black;" id="registration" type="button"  value="Confirm Registration">
+                 <input style="border: 1px solid; padding: 10px; border-radius: 5px; background-color: blue; color: white; box-shadow: 2px 2px black;" id="registration" type="submit" name="submit" value="submit">
              </form>
+
+
             </div>
             <div style="background-color:darkcyan; height: 300px; width: 300px;  display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 10px;">
                 <h3 style="font-weight: bold;">Login</h3>
@@ -98,7 +100,7 @@
                     </label>
                     <br>
                     <br>
-                    <input style="border: 1px solid; padding: 10px; border-radius: 5px; background-color: blue; color: white; box-shadow: 2px 2px black;" id="registration" type="button"  value="Login">
+                    <input style="border: 1px solid; padding: 10px; border-radius: 5px; background-color: blue; color: white; box-shadow: 2px 2px black;" id="login" type="submit"  value="Login">
                  </form>
             </div>
         </div>
