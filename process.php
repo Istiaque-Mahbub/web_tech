@@ -1,4 +1,6 @@
 <?php
+
+
 if (isset($_POST['submit'])) {
     if (
         $_POST['userName'] != "" || 
@@ -11,6 +13,10 @@ if (isset($_POST['submit'])) {
         $_POST['gender'] != ''
     ) {
         echo '
+          <div style="display: flex; flex-direction: column; position: absolute; top: 0; right: 20px;">
+     <p style="color: red;">ID: 22-49167-3</p>
+    <p style="color: red; margin-top: -5px;">ID: 22-46770-1</p>
+   </div>
         <div style="max-width: 400px; margin: 20px auto; padding: 20px; border: 2px solid #ccc; border-radius: 10px; font-family: Arial; background-color: #f9f9f9;">
             <h3 style="margin-top: 0;">Submitted Info</h3>
             <p><strong>Name:</strong> ' . htmlspecialchars($_POST['userName']) . '</p>
