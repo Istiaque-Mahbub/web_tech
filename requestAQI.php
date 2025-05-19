@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <p style="color:red;"><?php echo $error; ?></p>
         <?php endif; ?>
 
-        <form method="post" action="">
+        <form method="post" action="showaqi.php">
             <?php
             $cities = [
                 "Dhaka", "Chittagong", "Rajshahi", "Delhi", "Mumbai", "Bangalore",
