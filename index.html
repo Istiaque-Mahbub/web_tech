@@ -91,21 +91,19 @@
             <div style="background-color:darkcyan; height: 300px; width: 300px;  display: flex; flex-direction: column; justify-content: center; align-items: center; padding-bottom: 10px;">
                 <h3 style="font-weight: bold;">Login</h3>
                 <!-- login -->
-                 <form>
-                    <label>
-                        <label>
-                            <p>Username</p>
-                            <input  style="border: 1px solid; padding: 10px; border-radius: 5px;" type="text" id="username" placeholder="Please enter your username" >
-                        </label>
-                     </label>
-                     <label >
-                        <p>Password</p>
-                        <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="password" placeholder="Enter your password" id="loginPass">
-                    </label>
-                    <br>
-                    <br>
-                    <input style="border: 1px solid; padding: 10px; border-radius: 5px; background-color: blue; color: white; box-shadow: 2px 2px black;" id="login" type="submit"  value="Login">
-                 </form>
+                 <form action="login.php" method="POST" style="display: flex; flex-direction: column; align-items: center;">
+    <label>
+        <p>Username</p>
+        <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="text" name="username" placeholder="Please enter your username" required>
+    </label>
+    <label>
+        <p>Password</p>
+        <input style="border: 1px solid; padding: 10px; border-radius: 5px;" type="password" name="loginPass" placeholder="Enter your password" required>
+    </label>
+    <br>
+    <input style="border: 1px solid; padding: 10px; border-radius: 5px; background-color: blue; color: white; box-shadow: 2px 2px black;" type="submit" value="Login">
+</form>
+
             </div>
         </div>
         <div style="margin-top: 20px; background-color:antiquewhite; height: 1260px; width: 500px;">
