@@ -31,10 +31,14 @@ if ($result && $result->num_rows === 1) {
     header("Location: requestAQI.php");
     exit();
 } else {
-    echo "<script>
-        alert('Invalid username or password!');
-        window.location.href = 'index.html';
-    </script>";
+    echo '
+    <div style="text-align: center; margin-top: 50px;">
+        <p style="color: red; font-weight: bold;">Invalid username or password</p>
+        <a href="./index.html">
+            <button style="padding: 10px 20px; font-size: 16px;">Go Back</button>
+        </a>
+    </div>
+';
 }
 
 $conn->close();

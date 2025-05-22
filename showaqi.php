@@ -1,11 +1,28 @@
 <?php
 session_start();
 
-// Use session-stored 'perferable_color' (typo matched with DB)
+// Use session-stored 'perferable_color'
 $bgColor = isset($_SESSION['perferable_color']) ? $_SESSION['perferable_color'] : '#f4f6f8';
 
 $selectedCities = [];
 $error = "";
+
+// DB connection
+$con = mysqli_connect("localhost", "root", "", "aqi");
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Get user info
+$userName = "User";
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $query = "SELECT name FROM user WHERE name = '" . mysqli_real_escape_string($con, $username) . "'";
+    $result = mysqli_query($con, $query);
+    if ($result && mysqli_num_rows($result) === 1) {
+        $userName = mysqli_fetch_assoc($result)['name'];
+    }
+}
 
 // Handle POST input
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['city']) && is_array($_POST['city'])) {
@@ -28,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['city']) && is_array($
             background-color: <?php echo htmlspecialchars($bgColor); ?>;
             text-align: center;
             margin: 0;
+            opacity: 0.8;
             padding: 20px;
         }
 
@@ -79,9 +97,56 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['city']) && is_array($
         .error {
             color: red;
         }
+
+        .top-right {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            text-align: right;
+        }
+
+        .user-info {
+            margin-top: 8px;
+        }
+
+        .user-name {
+            font-weight: bold;
+            color: #007BFF;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .logout-form {
+            display: block;
+        }
+
+        .logout-form button {
+            padding: 5px 10px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        label {
+            display: inline-block;
+            margin: 3px 0;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Top Right Info -->
+    <div class="top-right">
+        <p style="color: red; margin: 0;">ID: 22-49167-3</p>
+        <p style="color: red; margin: 0;">ID: 22-46770-1</p>
+        <div class="user-info">
+            <a href="information.php" class="user-name"><?php echo htmlspecialchars($userName); ?></a>
+            <form method="post" action="logout.php" class="logout-form">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+    </div>
+
     <h2>AQI for Selected Cities</h2>
 
     <?php if ($error): ?>
@@ -89,12 +154,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['city']) && is_array($
         <a href="requestAQI.php">Go back</a>
     <?php else: ?>
         <?php
-        $con = mysqli_connect("localhost", "root", "", "aqi");
-
-        if (!$con) {
-            die("<p class='error'>Connection failed: " . mysqli_connect_error() . "</p>");
-        }
-
         $escapedCities = array_map(function($city) use ($con) {
             return "'" . mysqli_real_escape_string($con, $city) . "'";
         }, $selectedCities);
